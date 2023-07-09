@@ -79,7 +79,7 @@ def twoSum(nums: List[int]):
     return output
 ```
 
-In this two pointer solution, our final time complexity is $$ O(n^2) $$ which we get from our sorting of `nums` + our `while` loop * checking for duplicates which equals $$O(n$$log$$n)$$ + $$O(n)$$ * $$O(n)$$ = $$O(n$$log$$n)$$ + $$O(n^2)$$ = $$O(n^2)$$. 
+In this two pointer solution, our final time complexity is $$O(n^2)$$ which we get from our sorting of `nums` + our `while` loop * checking for duplicates which equals $$O(n$$log$$n)$$ + $$O(n)$$ * $$O(n)$$ = $$O(n$$log$$n)$$ + $$O(n^2)$$ = $$O(n^2)$$. 
 
 Checking for duplicates this way is incredibly slow and we can fix this by using a hashable data structure such as a hash set or we can again take advantage of the fact that our list is sorted and duplicate values will be next to each other. To do this, we simply skip over any values that match the previous value.
 
