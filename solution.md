@@ -38,9 +38,9 @@ def bruteForce(nums: List[int]):
     return output
 
 ```
-In the example, our final time complexity is $O(n^3)$. Using any data structure that hashes values such as a set or dictionary for our output would reduce the time need to check for duplications from $$O(n)$$ to $$O(1)$$, for a total time of $$O(n^2)$$. However, this introduces other complications into the algorithm that would need to be dealt with in the algorithm.
+In the example, our final time complexity is $O(n^3)$. Using any data structure that hashes values such as a set or dictionary for our output would reduce the time need to check for duplications from $O(n)$ to $O(1)$, for a total time of $O(n^2)$. However, this introduces other complications into the algorithm that would need to be dealt with in the algorithm.
 
-A two pointer algorithm can take advantage of the fact that we can know how far off from our target value `0` we are and adjust our two input values accordingly. To do this we need to first sort our array in ascending order. This can be done in $$~O(n$$log$$n)$$ time using Python's `.sort()` method, e.g. `[-1, 0, 1, 2, -1, -4] -> [-4, -1, -1, 0, 1, 2]`. Now that `nums` is sorted, we can select the smallest value at `nums[0] = -4` and our largest value `nums[n-1] = 2` and sum them together `nums[0] + nums[n-1] = -2` or `-4 + 2 = -2`. In this case we undershot our target value of `0` by `-2`. To adjust for our summed value being less than our target value, we increment our index/pointer at `0` to the next smallest value at index `1`i.e`nums[1] = -1`. This gives us `nums[1] + nums[n-1] = 1` or `-1 + 2 = 1`. In this case, we overshot or target value of `0` by `1`. Similar to before, we can adjust for this by moving one of our pointers/indices. Since we overshot the target value this time, we will instead decrement our largest value at index `n-1` to our second larget value at `n-2` i.e. `nums[n-2] = 1`. This gives us `nums[1] + nums[n-2] = 0`. This time we got our target value of `0`. We can either move our pointer/idex the next largest value and repeat this process until you are done to find all possible combinations that sum to `0`.
+A two pointer algorithm can take advantage of the fact that we can know how far off from our target value `0` we are and adjust our two input values accordingly. To do this we need to first sort our array in ascending order. This can be done in $~O(n$log$n)$ time using Python's `.sort()` method, e.g. `[-1, 0, 1, 2, -1, -4] -> [-4, -1, -1, 0, 1, 2]`. Now that `nums` is sorted, we can select the smallest value at `nums[0] = -4` and our largest value `nums[n-1] = 2` and sum them together `nums[0] + nums[n-1] = -2` or `-4 + 2 = -2`. In this case we undershot our target value of `0` by `-2`. To adjust for our summed value being less than our target value, we increment our index/pointer at `0` to the next smallest value at index `1`i.e`nums[1] = -1`. This gives us `nums[1] + nums[n-1] = 1` or `-1 + 2 = 1`. In this case, we overshot or target value of `0` by `1`. Similar to before, we can adjust for this by moving one of our pointers/indices. Since we overshot the target value this time, we will instead decrement our largest value at index `n-1` to our second larget value at `n-2` i.e. `nums[n-2] = 1`. This gives us `nums[1] + nums[n-2] = 0`. This time we got our target value of `0`. We can either move our pointer/idex the next largest value and repeat this process until you are done to find all possible combinations that sum to `0`.
 
 **2sum Two Pointer algorithm**:
 ```
@@ -79,7 +79,7 @@ def twoSum(nums: List[int]):
     return output
 ```
 
-In this two pointer solution, our final time complexity is $$O(n^2)$$ which we get from our sorting of `nums` + our `while` loop * checking for duplicates which equals $$O(n$$log$$n)$$ + $$O(n)$$ * $$O(n)$$ = $$O(n$$log$$n)$$ + $$O(n^2)$$ = $$O(n^2)$$. 
+In this two pointer solution, our final time complexity is $O(n^2)$ which we get from our sorting of `nums` + our `while` loop * checking for duplicates which equals $O(n$log$n)$ + $O(n)$ * $O(n)$ = $O(n$log$n)$ + $O(n^2)$ = $O(n^2)$. 
 
 Checking for duplicates this way is incredibly slow and we can fix this by using a hashable data structure such as a hash set or we can again take advantage of the fact that our list is sorted and duplicate values will be next to each other. To do this, we simply skip over any values that match the previous value.
 
@@ -114,7 +114,7 @@ def twoSum(nums: List[int]):
     return output
 ```
 
-This adjustment reduces our `while` loop's time complexity from $$O(n^2)$$ to $$O(n)$$. Thus our final time complexity is $$O(n$$log$$n)$$ + $$O(n)$$ = $$O(n$$log$$n)$$ + $$O(n)$$ = $$O(n$$log$$n)$$. A faster algorithm can be done $$O(n)$$ utilizing a hash table based algorithm instead of a two pointer algorithm but good luck figuring that out for our 3sum problem. 
+This adjustment reduces our `while` loop's time complexity from $O(n^2)$ to $O(n)$. Thus our final time complexity is $O(n$log$n)$ + $O(n)$ = $O(n$log$n)$ + $O(n)$ = $O(n$log$n)$. A faster algorithm can be done $O(n)$ utilizing a hash table based algorithm instead of a two pointer algorithm but good luck figuring that out for our 3sum problem. 
 
 ## 3sum Solution
 
@@ -153,14 +153,14 @@ class Solution:
 ```
 Faster solutions exist but this approach is easier to grasp as it build off of a simple Two Pointers problem. 
 # Complexity
-- Time complexity: $$O(n^2)$$
-Sorting of nums + binding range for loop * Two Pointer algorith = $$O(n$$log$$n)$$ + $$O(n)$$ * $$O(n)$$ = $$O(n$$log$$n)$$ + $$O(n^2)$$ = $$O(n^2)$$. Expect to beat ~40-70% of solutions.
-<!-- Add your time complexity here, e.g. $$O(n)$$ -->
+- Time complexity: $O(n^2)$
+Sorting of nums + binding range for loop * Two Pointer algorith = $O(n$log$n)$ + $O(n)$ * $O(n)$ = $O(n$log$n)$ + $O(n^2)$ = $O(n^2)$. Expect to beat ~40-70% of solutions.
+<!-- Add your time complexity here, e.g. $O(n)$ -->
 
 
-- Space complexity: $$O(n)$$
-Worse case `output` is $$O(n)$$. All other variables are $$O(1)$$. Expect to beat about ~90% of solutions.
-<!-- Add your space complexity here, e.g. $$O(n)$$ -->
+- Space complexity: $O(n)$
+Worse case `output` is $O(n)$. All other variables are $O(1)$. Expect to beat about ~90% of solutions.
+<!-- Add your space complexity here, e.g. $O(n)$ -->
 
 # Code
 ```
